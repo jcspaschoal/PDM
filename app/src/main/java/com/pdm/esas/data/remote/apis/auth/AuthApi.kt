@@ -1,6 +1,7 @@
 package com.pdm.esas.data.remote.apis.auth
 
 import com.google.rpc.context.AttributeContext
+import com.pdm.esas.data.model.Auth
 import com.pdm.esas.data.remote.RequestHeaders
 import com.pdm.esas.data.remote.apis.auth.request.BasicAuthRequest
 import com.pdm.esas.data.remote.response.ApiDataResponse
@@ -16,7 +17,8 @@ interface AuthApi {
     @Headers(RequestHeaders.Key.AUTH_PUBLIC)
     suspend fun basicLogin(
         @Body request: BasicAuthRequest
-    ): ApiDataResponse<AttributeContext.Auth>
+    ): ApiDataResponse<Auth>
+
 
     @DELETE(Endpoints.AUTH_LOGOUT)
     @Headers(RequestHeaders.Key.AUTH_PROTECTED)

@@ -7,9 +7,11 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.pdm.esas.SocialEsasApplication
 import com.pdm.esas.data.repository.UserRepository
+import com.pdm.esas.utils.log.Logger
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -40,7 +42,7 @@ class FireBaseInit @Inject constructor(
                 if (!task.isSuccessful) {
                     Logger.e(
                         SocialEsasApplication.TAG,
-                        "Fetching FCM registration token failed",
+                        "Falha ao buscar o token de registro do FCM",
                         task.exception.toString()
                     )
                     return@addOnCompleteListener
@@ -55,7 +57,7 @@ class FireBaseInit @Inject constructor(
                                 userRepository.setFirebaseTokenSent()
                             }
                     }
-                    if (BuildConfig.DEBUG) Logger.d(SocialEsasApplication.TAG, it)
+                    if (true) Logger.d(SocialEsasApplication.TAG, it)
                 }
             }
         }

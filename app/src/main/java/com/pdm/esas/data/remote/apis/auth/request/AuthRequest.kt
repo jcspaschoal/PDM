@@ -11,4 +11,3 @@ data class BasicAuthRequest(
     @Json(name = "password")
     val password: String
 )
-

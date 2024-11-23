@@ -30,10 +30,6 @@ class SocialEsasApplication: Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
         GlobalScope.launch {
-            metricInit.init()
-            workInit.init()
-            firebaseInit.init()
-            coilInit.init()
         }
     }
 

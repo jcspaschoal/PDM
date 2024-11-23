@@ -7,6 +7,8 @@ object Destination {
     data object Login : Screen("login")
     data object Splash : Screen("splash")
     data object Report: DynamicScreen("report", "reportId")
+    data object ServerUnreachable : Screen("server-unreachable")
+
 
     data object Calendar : Screen("calendar") {
         data object Task : DynamicScreen("calendar/task", "taskId")

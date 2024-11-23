@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">SocialEsas</string>
+
+    <!--
+    Estas strings são usadas para lidar com diversas mensagens de erro de rede
+    no aplicativo. Elas fornecem feedback amigável ao usuário para diferentes
+    cenários de erro, como problemas no servidor, conexão ou permissões.
+    Certifique-se de que estas mensagens sejam claras, concisas e devidamente
+    traduzidas para o público-alvo.
+    -->
+    <string name="server_connection_error">Não foi possível conectar-se ao servidor, por favor tente novamente.</string>
+    <string name="no_internet_connection">Sem conexão com a Internet!</string>
+    <string name="permission_not_available">Você não tem a permissão necessária!</string>
+    <string name="network_internal_error">Ocorreu um erro nos nossos sistemas, tente novamente.</string>
+    <string name="network_server_not_available">Nossos serviços estão em manutenção, tente novamente mais tarde.</string>
+    <string name="something_went_wrong">Algo deu errado, por favor tente novamente.</string>
+    <string name="ok">OK</string>
+
 </resources>

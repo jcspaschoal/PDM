@@ -2,7 +2,7 @@ package com.pdm.esas.utils.log
 
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
-import com.whereismymotivation.BuildConfig
+import com.pdm.esas.BuildConfig
 import timber.log.Timber
 
 object Logger {

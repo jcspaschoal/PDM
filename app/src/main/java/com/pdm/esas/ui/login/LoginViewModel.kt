@@ -1,9 +1,19 @@
 package com.pdm.esas.ui.login
 
+import com.pdm.esas.data.repository.AuthRepository
+import com.pdm.esas.data.repository.UserRepository
+import com.pdm.esas.ui.base.BaseViewModel
+import com.pdm.esas.ui.common.loader.Loader
+import com.pdm.esas.ui.common.snackbar.Message
+import com.pdm.esas.ui.common.snackbar.Messenger
+import com.pdm.esas.ui.navigation.Navigator
+import com.pdm.esas.utils.common.isValidEmail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
@@ -20,8 +30,8 @@ class LoginViewModel @Inject constructor(
         const val TAG = "LoginViewModel"
     }
 
-    private val _email = MutableStateFlow(if (BuildConfig.DEBUG) "admin@janisharali.com" else "")
-    private val _password = MutableStateFlow(if (BuildConfig.DEBUG) "changeit" else "")
+    private val _email = MutableStateFlow(if (false) "admin@janisharali.com" else "")
+    private val _password = MutableStateFlow(if (false) "changeit" else "")
     private val _emailError = MutableStateFlow("")
     private val _passwordError = MutableStateFlow("")
 
@@ -65,11 +75,6 @@ class LoginViewModel @Inject constructor(
                     }
                     .collect {
                         messenger.deliver(Message.success("Login Success"))
-                        if (userRepository.isOnBoardingComplete()) {
-                            navigator.navigateTo(Destination.Home.route, true)
-                        } else {
-                            navigator.navigateTo(Destination.Onboarding.route, true)
-                        }
                     }
             }
         }

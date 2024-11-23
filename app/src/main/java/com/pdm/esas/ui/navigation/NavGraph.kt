@@ -31,7 +31,7 @@ fun NavGraph(
 
         composable(Destination.Login.route) {
             val viewModel: LoginViewModel = hiltViewModel(key = LoginViewModel.TAG)
-            Login(modifier, viewModel)
+            Login(modifier)
         }
     }
 }

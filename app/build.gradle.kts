@@ -14,6 +14,7 @@ android {
     namespace = "com.pdm.esas"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.pdm.esas"
         minSdk = 24
@@ -25,11 +26,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "API_KEY", "\"AIzaSyAdIFNPAcsUPIFGmZgYwhm4s8dmTdammKQ\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.1.5:3000/\"")
+        }
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            buildConfigField("String", "API_KEY", "\"AIzaSyAdIFNPAcsUPIFGmZgYwhm4s8dmTdammKQ\"")
         }
     }
     compileOptions {
@@ -41,6 +46,8 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+
     }
 }
 
@@ -61,6 +68,7 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.work)
     implementation(libs.firebase.messaging.ktx)
+    implementation(libs.firebase.config.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -91,6 +99,13 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.datastore:datastore-core:1.0.0")
+
+    implementation ("com.airbnb.android:lottie-compose:6.1.0")
+
+
 
 }
 
