@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "653583008437",
+    "project_id": "socialesas",
+    "storage_bucket": "socialesas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653583008437:android:c79441c6eb615a3b7174fc",
+        "android_client_info": {
+          "package_name": "com.pdm.esas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdIFNPAcsUPIFGmZgYwhm4s8dmTdammKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
