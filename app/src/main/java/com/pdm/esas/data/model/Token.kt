@@ -5,20 +5,14 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
-
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class User(
+data class Token(
 
-    @Json(name = "_id")
-    val id: String,
+    @Json(name = "accessToken")
+    val accessToken: String,
 
-    @Json(name = "name")
-    val name: String?,
+    @Json(name = "refreshToken")
+    val refreshToken: String
 
-    @Json(name = "email")
-    val email: String?,
-
-    @Json(name = "roles")
-    val roles: List<Role> = listOf()
 ) : Parcelable

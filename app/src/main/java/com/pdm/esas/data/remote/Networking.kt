@@ -3,6 +3,11 @@ package com.pdm.esas.data.remote
 import com.pdm.esas.data.remote.interceptors.NetworkInterceptor
 import com.pdm.esas.data.remote.interceptors.RefreshTokenInterceptor
 import com.pdm.esas.data.remote.interceptors.RequestHeaderInterceptor
+import com.squareup.moshi.Moshi
+import okhttp3.OkHttpClient
+import okhttp3.Cache
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 

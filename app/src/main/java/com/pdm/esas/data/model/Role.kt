@@ -1,24 +1,26 @@
 package com.pdm.esas.data.model
 
 import android.os.Parcelable
+import androidx.annotation.Keep
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
-
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class User(
+data class Role(
 
     @Json(name = "_id")
     val id: String,
 
-    @Json(name = "name")
-    val name: String?,
+    @Json(name = "code")
+    val code: RoleCode
 
-    @Json(name = "email")
-    val email: String?,
-
-    @Json(name = "roles")
-    val roles: List<Role> = listOf()
-) : Parcelable
+) : Parcelable {
+    @Keep
+    enum class RoleCode(val value: String) {
+        VIEWER("VIEWER"),
+        ADMIN("ADMIN"),
+        MANAGER("MANAGER"),
+    }
+}

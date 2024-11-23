@@ -2,8 +2,11 @@ package com.pdm.esas.init
 
 import android.content.Context
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.pdm.esas.SocialEsasApplication
+import com.pdm.esas.data.repository.UserRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -52,7 +55,7 @@ class FireBaseInit @Inject constructor(
                                 userRepository.setFirebaseTokenSent()
                             }
                     }
-                    if (BuildConfig.DEBUG) Logger.d(WimmApplication.TAG, it)
+                    if (BuildConfig.DEBUG) Logger.d(SocialEsasApplication.TAG, it)
                 }
             }
         }
